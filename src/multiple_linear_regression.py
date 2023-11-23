@@ -22,32 +22,17 @@ class MultipleLinearRegression:
 
         x_inv = np.linalg.inv(np.dot(self.__features.T, self.__features))
 
-        self.__weights = np.dot(x_inv, np.dot(self.__features.T, Y))
-
-    def get_weights(self):
-        return self.__weights
-
-    def get_features(self):
-        return self.__features
-    
-    def predict(self, X):
-        assert X.shape[1] == self.p_dim, 'Wrong input dimensions'
-        X = check_dtype(X)
+        self.__weights = np.dot(np.dot(x_inv, self.__features.T), Y)
+        
+        
+    def predict(self, newdata):
+        assert newdata.shape[1] == self.p_dim, 'Wrong input dimensions'
+        newdata = check_dtype(newdata)
 
         result = []
-        for data in X:
-            temp_result = self.__weights[0]
-            
-            for i, value in enumerate(data):
-                temp_result += value * self.__weights[i+1]
-            
-            result.append(temp_result)
-        
+        for sample in newdata:
+            result.append(
+                np.dot(sample, self.__weights[1:]) + self.__weights[0]
+                )
+
         return result
-
-    def evaluate(self, X, Y):
-        predictions = self.predict(X)
-
-        self.mse = (np.square(predictions - Y)).mean()
-
-        return self.mse
