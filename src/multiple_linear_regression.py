@@ -1,30 +1,38 @@
 import numpy as np
 
+def check_dtype(X: np.ndarray) -> np.ndarray:
+    if X.dtype != np.float64:
+        return X.astype(np.float64)
+    
+    return X
+
 class MultipleLinearRegression:
     def __init__(self):
         self.intercept = 0
         self.p_dim = 0
 
     def train(self, X, Y):
-        if X.dtype != np.float64:
-            X = X.astype(np.float64)
-        if Y.dtype != np.float64:
-            Y = Y.astype(np.float64)
+        X = check_dtype(X)
+        Y = check_dtype(Y)
+
+        Y = np.reshape(Y, (-1, 1))
 
         self.p_dim = X.shape[1]
-        self.__weights = np.ones(self.p_dim + 1)
-        self.__features = np.insert(X, 0, np.ones(X.shape[0]), axis=1)
+        self.__features = np.insert(X, 0, np.ones(X.shape[0]).astype(np.float64), axis=1)
 
-        x_inv = np.linalg.inv(np.matmul(np.transpose(self.__features), self.__features))
+        x_inv = np.linalg.inv(np.dot(self.__features.T, self.__features))
 
-        self.__weights = np.matmul(x_inv, np.transpose(self.__features))
-        self.__weights = np.matmul(self.__weights, Y)
+        self.__weights = np.dot(x_inv, np.dot(self.__features.T, Y))
 
     def get_weights(self):
         return self.__weights
+
+    def get_features(self):
+        return self.__features
     
     def predict(self, X):
         assert X.shape[1] == self.p_dim, 'Wrong input dimensions'
+        X = check_dtype(X)
 
         result = []
         for data in X:
@@ -40,6 +48,6 @@ class MultipleLinearRegression:
     def evaluate(self, X, Y):
         predictions = self.predict(X)
 
-        self.mse = (np.square(predictions - Y)).mean(axis=None)
+        self.mse = (np.square(predictions - Y)).mean()
 
         return self.mse
