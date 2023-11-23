@@ -15,6 +15,8 @@ Block 1, 2, and 3 all define different classes.
 Put the three classes in three separate files in the `src` folder, with the names specified in the PDF.
 **Leave the __init__.py file untouched**.
 
+Put the **main.py** script **outside** of the `src` folder, in the root of this repo.
+
 Below this line, you can write your report to motivate your design choices.
 
 ---
