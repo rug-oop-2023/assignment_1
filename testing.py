@@ -17,3 +17,5 @@ xttwo = np.matmul(xtoneinv,xt)
 wstar = np.matmul(xttwo,y)  ## This is the multidimensional slope
 
 intercept = y_mean- np.matmul(x_mean,wstar)  ## This is the intercept, duh see variable name
+
+print(intercept)
