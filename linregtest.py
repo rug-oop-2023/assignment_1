@@ -1,10 +1,8 @@
 import numpy as np
 
-print("Hi Nico!")
-print("V2")
-
 class SimpleLinearRegressor:
     def __init__(self, default_intercept=0, default_slope=0):
+
         self.intercept = default_intercept
         self.slope = default_slope
     
@@ -26,12 +24,11 @@ class SimpleLinearRegressor:
         return self.slope * x + self.intercept
     
 if __name__ == "__main__":
-    model = SimpleLinearRegressor(0,0)
+    model = SimpleLinearRegressor()
     x = np.array([1,2,3,4,5,6])
     y = np.array([0,1,2,3,4,5])
     x = x.astype(np.float64)
     y = y.astype(np.float64)
-    x += np.random.rand(*x.shape)
     model.train(x, y)
     #x += np.random.rand(*x.shape)
     y_pred = model.predict(x)
