@@ -1,5 +1,7 @@
 import numpy as np
 
+print("Hi Nico!")
+
 class SimpleLinearRegressor:
     def __init__(self, default_intercept=0, default_slope=0):
         self.intercept = default_intercept
