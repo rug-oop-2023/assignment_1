@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1742d6d5-5a34-4276-8600-0f917f75011a" name="Changes" comment="Test">
-      <change afterPath="$PROJECT_DIR$/src/model_saver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiple_linear_regression.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/regression_plotter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +22,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "oscarmiro26"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2f167436-19be-4f82-9d99-6708f17815de" />
+        <option name="url" value="https://github.com/oscarmiro26/assignment_1.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,7 +75,7 @@
       <workItem from="1701081602784" duration="851000" />
       <workItem from="1701083410931" duration="2341000" />
       <workItem from="1701088118819" duration="1063000" />
-      <workItem from="1701103500742" duration="941000" />
+      <workItem from="1701103500742" duration="1810000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -81,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701103587291</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Test">
+      <option name="closed" value="true" />
+      <created>1701104645656</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701104645656</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
