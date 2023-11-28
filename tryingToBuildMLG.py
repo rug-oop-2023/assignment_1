@@ -18,7 +18,7 @@ secondblock = np.matmul(np.transpose(x),y)
 wstar = np.matmul(firstblock,secondblock)
 
 print(wstar)
-
+# 
 
 
 from sklearn.linear_model import LinearRegression as linreg
