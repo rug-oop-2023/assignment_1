@@ -19,6 +19,16 @@ Put the **main.py** script **outside** of the `src` folder, in the root of this 
 
 Below this line, you can write your report to motivate your design choices.
 
+## Submission
+
+The code should be submitted on GitHub by opening a Pull Request from the branch you were working on to the `submission` branch.
+
+There are automated checks that verify that your submission is correct:
+
+1. Deadline - checks that the last commit in a PR was made before the deadline
+2. Reproducibility - downloads libraries included in `requirements.txt` and runs `python3 src/main.py`. If your code does not throw any errors, it will be marked as reproducible.
+3. Style - runs `flake8` on your code to ensure adherence to style guides.
+
 ---
 
 ## Your report
