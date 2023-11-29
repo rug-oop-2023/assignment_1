@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class MultipleLinearRegression:
     def __init__(self):
         self._features = 0
@@ -15,36 +14,20 @@ class MultipleLinearRegression:
 
         self._features = np.shape(observations)[1]
 
-        # obs_mean = observations.mean()
-        # target_mean = target.mean()
-        # obs_residuals = observations - obs_mean
-        # target_residuals = target - target_mean
-        obs_residuals = observations
-        target_residuals = target
-
         ones = np.ones((np.shape(observations)[0], 1))
-        X = np.hstack((ones, obs_residuals))
+        X = np.hstack((ones, observations))
 
-        Xt = X.transpose()
-        Xi = np.linalg.inv(Xt.dot(X))
-        w = Xi.dot(Xt).dot(target_residuals)
+        X_transpose = X.transpose()
+        X_inverse = np.linalg.inv(X_transpose.dot(X))
+        weights = X_inverse.dot(X_transpose).dot(target)
 
-        self._intercept = w.item(0)
-        self._slope = np.delete(w, 0)
+        self._intercept = weights.item(0)
+        self._slope = np.delete(weights, 0)
 
-    def predict(self, data: np.ndarray) -> np.ndarray:
-        if np.shape(data)[1] != self._features:
+    def predict(self, observations: np.ndarray) -> np.ndarray:
+        if np.shape(observations)[1] != self._features:
             raise Exception("Wrong number of feature columns")
-        return self._intercept + data.dot(self._slope)
-
-
-if __name__ == "__main__":
-    from sklearn import datasets
-
-    diabetes = datasets.load_diabetes()
-    model = MultipleLinearRegression()
-    model.train(diabetes.data, diabetes.target)
-
-    predictions = model.predict(diabetes.data)
-    print("Real: ", diabetes.target[:5])
-    print("Pred: ", predictions[:5])
+        return self._intercept + observations.dot(self._slope)
+    
+def mean_squared_error(y, predictions):
+	return sum(np.square(y-predictions)).mean()
